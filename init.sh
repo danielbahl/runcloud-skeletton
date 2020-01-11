@@ -14,7 +14,6 @@ gcloud auth login
 gcloud projects create $projectid
 gcloud config set project $projectid
 gcloud beta billing projects link $projectid --billing-account=$billingaccountid
-gcloud services enable run.googleapis.com
-gcloud services enable containerregistry.googleapis.com
-gcloud services enable cloudbuild.googleapis.com
-
+gcloud services enable run.googleapis.com # Enable Cloud Run API
+gcloud services enable containerregistry.googleapis.com # Enable Container Registry API for storing docker images
+gcloud services enable cloudbuild.googleapis.com # For building Docker-images
