@@ -114,20 +114,76 @@ Cloud Run uses the open source Knative API and its container contract. This give
 
 # How can I have cronjobs on Cloud Run?
 
-If you need to invoke your Cloud Run applications periodically, use
-[Google Cloud Scheduler](https://cloud.google.com/scheduler/). It can make a
-request to your application’s specific URL at an interval you specify.
+Cronjobs is not recommended because you have an unknown number of containers, potentially hundreds or thousands, all of which will execute the same cron jobs. Therefore, we do not recommend cronjobs on the individual containers.
+
+If you need to invoke your Cloud Run applications periodically, use [Google Cloud Scheduler](https://cloud.google.com/scheduler/). This service can make a requests to your applications specific URL at an interval you specify. See at it as a modern Cloud-based crontab. 😎
 
 # Can I mount storage volumes or disks on Cloud Run?
 
-Cloud Run currently doesn’t offer a way to bind mount additional storage volumes
-(like FUSE, or [persistent disks][pd]) on your filesystem. If you’re reading
-data from Google Cloud Storage, instead of using solutions like `gcsfuse`, you
-should use the supported Google Cloud Storage client libraries.
+Cloud Run currently doesn’t offer a way to bind mount additional storage volumes on your filesystem. There's no FUSE, mount-points, [persistant disks][pd] etc.  
 
-However, Cloud Run **on GKE** allows you to mount Kubernetes [Secrets] and
-[ConfigMaps], but **this is not yet fully supported**. See an example
-[here][sec-ex] about mounting [Secrets] to a Service running on GKE.
+Of course, this does not mean that you do not have access to persistent storage. It just means you have to think a little differently when you code.
+
+Let's take a look on how you can achive this in PHP with the a cheap Google Cloud Storage bucket.
+
+### Installation
+
+To begin, install the preferred dependency manager for PHP, [Composer](https://getcomposer.org/).
+
+Now to install just this component:
+
+```sh
+$ composer require google/cloud-storage
+```
+
+Or to install the entire suite of components at once, if you plan to use other Cloud-services from the Google Cloud Platform.
+
+```sh
+$ composer require google/cloud
+```
+
+### Authentication
+
+Please see our [Authentication guide](https://github.com/googleapis/google-cloud-php/blob/master/AUTHENTICATION.md) for more information
+on authenticating your client. Once authenticated, you'll be ready to start making requests.
+
+### Upload a file and make it public
+
+```php
+require 'vendor/autoload.php';
+use Google\Cloud\Storage\StorageClient;
+$storage = new StorageClient();
+$bucket = $storage->bucket('my_bucket'); // Define your Bucket
+
+// Upload a file to the bucket.
+$bucket->upload(
+    fopen('/profile_pictures/image.jpg', 'r')
+);
+
+// Using Predefined ACLs to manage object permissions, you may
+// upload a file and give read access to anyone with the URL.
+$bucket->upload(
+    fopen('/profile_pictures/image.jpg', 'r'),
+    [
+        'predefinedAcl' => 'publicRead'
+    ]
+);
+```
+
+### Stream Wrapper
+
+```php
+require 'vendor/autoload.php';
+use Google\Cloud\Storage\StorageClient;
+$storage = new StorageClient();
+$storage->registerStreamWrapper();
+
+$contents = file_get_contents('gs://my_bucket/profile_pictures/image.jpg');
+```
+
+## Cloud Run for Anthos on GKE
+
+Cloud Run for Anthos **on GKE** allows you to mount Kubernetes [Secrets] and [ConfigMaps], but **this is not yet fully supported**. See an example [here][sec-ex] about mounting [Secrets] to a Service running on GKE.
 
 [pd]: https://cloud.google.com/persistent-disk/
 [vols]: https://cloud.google.com/kubernetes-engine/docs/concepts/volumes
@@ -135,9 +191,9 @@ However, Cloud Run **on GKE** allows you to mount Kubernetes [Secrets] and
 [ConfigMaps]: https://cloud.google.com/kubernetes-engine/docs/concepts/configmap
 [sec-ex]: https://knative.dev/docs/serving/samples/secrets-go/
 
-## Pricing
+# Cloud Run Pricing
 
-> [Cloud Run Pricing documentation][pricing] has the most up-to-date information.
+> [Cloud Run Pricing documentation][pricing] has the most up-to-date information on pricing.
 
 [pricing]: https://cloud.google.com/run/pricing
 
@@ -157,5 +213,4 @@ Based on "time serving requests" on each instance. If your service handles
 multiple requests simultaneously, you do not pay for them separately. (This is a
 **cost saver!**)
 
-Each billable timeslice is **rounded up** to the nearest **100
-milliseconds**.
+Each billable timeslice is **rounded up** to the nearest **100 milliseconds**.
