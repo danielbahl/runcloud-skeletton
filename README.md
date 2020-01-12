@@ -5,21 +5,6 @@ With this set of tools you can go from zero to fully-managed auto-scaleable cont
 
 ![Welcome to the Cloud Run Skeleton Project by Daniel Bahl](https://servicepoint.blob.core.windows.net/servicepoint-files/CleanShot-2020-01-12-at-09.06.56-6PLS9MfvNvoZ81x5Jg7EeoWyCIU2BwpD.png)
 
-## What can I run in Cloud Run?
-
-If a web-application can be packaged into a container-image (Docker) and can run on Linux (x86-64), it can be executed on Googles Cloud Run platform.
-
-Web applications written in languages like Node.js, Python, Go, Java, Ruby, PHP, Rust, Kotlin, Swift, C/C++, C# will work on Cloud Run.
-
-Cloud Run is designed to run stateless request-driven containers. This means you can deplo web applications, APIs or webhooks.
-
-Cloud Run kan also be used for internal or private services with the new autentication layer, data transformation and background jobs and potentially triggered asynchronously by Pub/Sub events or Cloud Schelduler.
-
-Other kinds of applications may not be fit for Cloud Run. If your application is doing processing while it’s not handling requests or storing in-memory state, it may not be suitable for Cloud Run.
-
-This script is based on PHP 7.4, using the Docker Hub image "php:7.4-apache". This can easily be changed in the Dockerfile after running the installer script below.
-
-
 ```
   _______             __  ___          
  / ___/ /__  __ _____/ / / _ \__ _____ 
@@ -86,3 +71,39 @@ Build and deploy a dev-enviroment in Google Cloud Platform Cloud Run.
 
 Build and deploy a prod-enviroment in Google Cloud Platform Cloud Run. 
 You can map your domain here.
+
+
+
+## What can I run in Cloud Run?
+
+If a web-application can be packaged into a container-image (Docker) and can run on Linux (x86-64), it can be executed on Googles Cloud Run platform.
+
+Web applications written in languages like Node.js, Python, Go, Java, Ruby, PHP, Rust, Kotlin, Swift, C/C++, C# will work on Cloud Run.
+
+Cloud Run is designed to run stateless request-driven containers. This means you can deplo web applications, APIs or webhooks.
+
+Cloud Run kan also be used for internal or private services with the new autentication layer, data transformation and background jobs and potentially triggered asynchronously by Pub/Sub events or Cloud Schelduler.
+
+Other kinds of applications may not be fit for Cloud Run. If your application is doing processing while it’s not handling requests or storing in-memory state, it may not be suitable for Cloud Run.
+
+This script is based on PHP 7.4, using the Docker Hub image "php:7.4-apache". This can easily be changed in the Dockerfile after running the installer script below.
+
+## How is it different than Googles App Engine Flexible?
+
+GAE Flexible and Cloud Run from Google are very similar in concept, but they differ when is comes to the underlying tech. They both accept container images as deployment input, they both automatically scale and manage the infrastructure that your code runs for you. However:
+
+### Pricing/Autoscaling: 
+The pricing model between GAE Flexible Environment and Cloud Run are a bit different.
+
+In GAE Flexible, you are always running at least 1 instance at any time. So even if your app is not getting any requests, you’re paying for that instance. Billing granularity is 1 minute.
+   In Cloud Run, you are only paying when you are processing requests, and the billing granularity is 0.1 second. See here for an explanation of the Cloud Run billing model.
+
+### Underlying infrastructure
+Since GAE Flexible is running on VMs, it is a bit slower than Cloud Run to deploy a new revision of your app, and scale up. Cloud Run deployments are faster.
+
+### Portability
+Cloud Run uses the open source Knative API and its container contract. This gives you flexibility and freedom to a greater extent. If you wanted to run the same workload on an infra you manage (for example a Kubernetes/k8s cluster like GKE), you could do it with "Cloud Run on GKE".
+
+* GAE Flexible is built on VMs, therefore is much slower to deploy and scale up.
+* GAE Flexible does not scale to zero, at least 1 instance must be running.
+* GAE Flexible billing has 1 minute granularity, Cloud Run is jut 0.1 second.
