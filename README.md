@@ -3,6 +3,8 @@ Skeleton and Deployment-scripts for Cloud Run Instances in Google Cloud Platform
 
 With this set of tools you can go from zero to fully-managed auto-scalable containerised web-application running on Cloud Run from GCP. 
 
+![Welcome to the Cloud Run Skeleton Project by Daniel Bahl](https://servicepoint.blob.core.windows.net/servicepoint-files/CleanShot-2020-01-12-at-09.06.56-6PLS9MfvNvoZ81x5Jg7EeoWyCIU2BwpD.png)
+
 ## What can I run in Cloud Run?
 
 If a web-application can be packaged into a container-image (Docker) and can run on Linux (x86-64), it can be executed on Googles Cloud Run platform.
