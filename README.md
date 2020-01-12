@@ -95,15 +95,67 @@ GAE Flexible and Cloud Run from Google are very similar in concept, but they dif
 ## Pricing/Autoscaling: 
 The pricing model between GAE Flexible Environment and Cloud Run are a bit different.
 
-In GAE Flexible, you are always running at least 1 instance at any time. So even if your app is not getting any requests, you’re paying for that instance. Billing granularity is 1 minute.
-   In Cloud Run, you are only paying when you are processing requests, and the billing granularity is 0.1 second. See here for an explanation of the Cloud Run billing model.
+In **GAE Flexible**, you are always running at least 1 instance at any time. So even if your app is not getting any requests, you’re paying for that instance. Billing granularity is 1 minute.
+
+In **Cloud Run**, you are only paying when you are processing requests, and the billing granularity is 0.1 second. See here for an explanation of the Cloud Run billing model.
 
 ## Underlying infrastructure
-Since GAE Flexible is running on VMs, it is a bit slower than Cloud Run to deploy a new revision of your app, and scale up. Cloud Run deployments are faster.
+Since GAE Flexible is running on VMs, it is a bit slower than Cloud Run to deploy a new revision of your app, and scale up. Cloud Run deployments are way faster.
 
 ## Portability
 Cloud Run uses the open source Knative API and its container contract. This gives you flexibility and freedom to a greater extent. If you wanted to run the same workload on an infra you manage (for example a Kubernetes/k8s cluster like GKE), you could do it with "Cloud Run on GKE".
 
+## Conclusion
+
 * GAE Flexible is built on VMs, therefore is much slower to deploy and scale up.
 * GAE Flexible does not scale to zero, at least 1 instance must be running.
 * GAE Flexible billing has 1 minute granularity, Cloud Run is jut 0.1 second.
+
+
+# How can I have cronjobs on Cloud Run?
+
+If you need to invoke your Cloud Run applications periodically, use
+[Google Cloud Scheduler](https://cloud.google.com/scheduler/). It can make a
+request to your application’s specific URL at an interval you specify.
+
+# Can I mount storage volumes or disks on Cloud Run?
+
+Cloud Run currently doesn’t offer a way to bind mount additional storage volumes
+(like FUSE, or [persistent disks][pd]) on your filesystem. If you’re reading
+data from Google Cloud Storage, instead of using solutions like `gcsfuse`, you
+should use the supported Google Cloud Storage client libraries.
+
+However, Cloud Run **on GKE** allows you to mount Kubernetes [Secrets] and
+[ConfigMaps], but **this is not yet fully supported**. See an example
+[here][sec-ex] about mounting [Secrets] to a Service running on GKE.
+
+[pd]: https://cloud.google.com/persistent-disk/
+[vols]: https://cloud.google.com/kubernetes-engine/docs/concepts/volumes
+[Secrets]: https://cloud.google.com/kubernetes-engine/docs/concepts/secret
+[ConfigMaps]: https://cloud.google.com/kubernetes-engine/docs/concepts/configmap
+[sec-ex]: https://knative.dev/docs/serving/samples/secrets-go/
+
+## Pricing
+
+> [Cloud Run Pricing documentation][pricing] has the most up-to-date information.
+
+[pricing]: https://cloud.google.com/run/pricing
+
+# Is there a “Free Tier”?
+
+Yes! See [Pricing documentation][pricing].
+
+# When am I charged?
+
+You only pay **while a request is being handled** on your container instance.
+
+This means an application that is not getting traffic is **free of charge**.
+
+# How is billed time calculated?
+
+Based on "time serving requests" on each instance. If your service handles
+multiple requests simultaneously, you do not pay for them separately. (This is a
+**cost saver!**)
+
+Each billable timeslice is **rounded up** to the nearest **100
+milliseconds**.
