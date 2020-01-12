@@ -73,7 +73,6 @@ Build and deploy a prod-enviroment in Google Cloud Platform Cloud Run.
 You can map your domain here.
 
 
-
 # What can I run in Cloud Run?
 
 If a web-application can be packaged into a container-image (Docker) and can run on Linux (x86-64), it can be executed on Googles Cloud Run platform.
@@ -118,15 +117,24 @@ Cronjobs is not recommended because you have an unknown number of containers, po
 
 If you need to invoke your Cloud Run applications periodically, use [Google Cloud Scheduler](https://cloud.google.com/scheduler/). This service can make a requests to your applications specific URL at an interval you specify. See at it as a modern Cloud-based crontab. 😎
 
+# How can I handle logging from my app / service ?
+
+When you write logs from your service, they will be picked up automatically by Stackdriver Logging so long as the logs are written to any of these locations:
+
+* Standard output (stdout) or standard error (stderr) streams
+* Any files under the /var/log directory
+* syslog (/dev/log)
+* Logs written using Stackdriver Logging Client Libraries, which are available for many popular languages
+
 # Can I mount storage volumes or disks on Cloud Run?
 
-Cloud Run currently doesn’t offer a way to bind mount additional storage volumes on your filesystem. There's no FUSE, mount-points, [persistant disks][pd] etc.  
+Cloud Run currently doesn’t offer a way to bind or mount additional storage volumes on your filesystem. There's no FUSE, mount-points, [persistant disks][pd] etc.  
 
 Of course, this does not mean that you do not have access to persistent storage. It just means you have to think a little differently when you code.
 
 Let's take a look on how you can achive this in PHP with the a cheap Google Cloud Storage bucket.
 
-### Installation
+### Install Google Cloud Storge lib. in PHP 7
 
 To begin, install the preferred dependency manager for PHP, [Composer](https://getcomposer.org/).
 
