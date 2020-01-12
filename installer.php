@@ -215,6 +215,26 @@ if($regionID == 1) {
 	$region = "us-central1";
 }
 
+
+echo "🚀  Pick Deployment Platform\n ==========";
+echo "\n1) Fully managed Cloud Run (default)\n
+2) Google Kubernetes Engine (GKE) from Google Cloud\n
+3) Kubernetes (Knative-compatible kubernetes cluster)\n\n";
+
+echo "Pick a Platform (1-3): ";
+$handle = fopen ("php://stdin","r");
+$line = fgets($handle);
+$platformID = intval($line);
+if($platformID == 1) {
+	$platform = "managed";
+} elseif($platformID == 2) {
+	$platform = "gke";
+} elseif($platformID == 3) {
+	$platform = "kubernetes";
+} else {
+	$platform = "managed";
+}
+
 /*************
 *** Clear screen and sum up ***
 *************/
@@ -239,6 +259,13 @@ $billingID = trim(strtoupper($line));
 $configfile = '# Region in which the resource can be found.
 # More info: https://cloud.google.com/run/docs/locations
 region='.$region.'
+
+# Platform
+# Target platform for running commands:
+# managed (default Cloud Run), 
+# gke (Cloud Run on Google Kubernetes Engine) 
+# kubernetes (Cloud Run on knative-compatible kubernetes cluster)
+platform='.$platform.'
 
 # Set a memory limit per container. 
 # Ex: 1Gi, 512Mi. 
