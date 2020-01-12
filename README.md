@@ -1,5 +1,22 @@
 # Google Cloud Platform (GCP) - Cloud Run
-Skeleton and Deployment-scripts for Cloud Run Instances in Google Cloud Platform (GCP)
+Skeleton and Deployment-scripts for Cloud Run Instances in Google Cloud Platform (GCP). 
+
+With this set of tools you can go from zero to fully-managed auto-scalable containerised web-application running on Cloud Run from GCP. 
+
+## What can I run in Cloud Run?
+
+If a web-application can be packaged into a container-image (Docker) and can run on Linux (x86-64), it can be executed on Googles Cloud Run platform.
+
+Web applications written in languages like Node.js, Python, Go, Java, Ruby, PHP, Rust, Kotlin, Swift, C/C++, C# will work on Cloud Run.
+
+Cloud Run is designed to run stateless request-driven containers. This means you can deplo web applications, APIs or webhooks.
+
+Cloud Run kan also be used for internal or private services with the new autentication layer, data transformation and background jobs and potentially triggered asynchronously by Pub/Sub events or Cloud Schelduler.
+
+Other kinds of applications may not be fit for Cloud Run. If your application is doing processing while it’s not handling requests or storing in-memory state, it may not be suitable for Cloud Run.
+
+This script is based on PHP 7.4, using the Docker Hub image "php:7.4-apache". This can easily be changed in the Dockerfile after running the installer script below.
+
 
 ```
   _______             __  ___          
@@ -67,7 +84,3 @@ Build and deploy a dev-enviroment in Google Cloud Platform Cloud Run.
 
 Build and deploy a prod-enviroment in Google Cloud Platform Cloud Run. 
 You can map your domain here.
-
-## pull.sh
-
-Request the latest build from the Container Repo.
