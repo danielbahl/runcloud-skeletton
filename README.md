@@ -1,7 +1,7 @@
 # Google Cloud Platform (GCP) - Cloud Run
 Skeleton and Deployment-scripts for Cloud Run Instances in Google Cloud Platform (GCP). 
 
-With this set of tools you can go from zero to fully-managed containerised web-application running on Cloud Run from GCP. Everything is running securely with TLS certificates and will auto-scale with load out-of-the-box. Cloud Run also supports scale-to-zero meaning you can run your applications without cost, when there's no load.
+With this set of tools you can go from zero to fully-managed auto-scaleable containerised web-application running on Cloud Run from GCP. Everything is running securely with TLS certificates and will auto-scale out-of-the-box. Cloud Run also supports scale-to-zero meaning you can run your applications without cost, when there's no load.
 
 ![Welcome to the Cloud Run Skeleton Project by Daniel Bahl](https://servicepoint.blob.core.windows.net/servicepoint-files/CleanShot-2020-01-12-at-09.06.56-6PLS9MfvNvoZ81x5Jg7EeoWyCIU2BwpD.png)
 
