@@ -114,7 +114,7 @@ Cloud Run uses the open source Knative API and its container contract. This give
 
 # How can I have cronjobs on Cloud Run?
 
-Cronjobs is not recommended because you have an unknown number of containers, potentially hundreds or thousands, all of which will execute the same cron jobs. Therefore, we do not recommend cronjobs on the individual containers.
+Cronjobs is not recommended because you have an unknown number of containers, potentially hundreds or thousands, all of which will execute the same cron jobs. Also, Cloud Run is designed to run based on HTTP-requests, not requests from within the system. Therefore, cronjobs on the individual containers is not a thing on Cloud Run :) It's not the Cloud Way to do it! But luckly there's Cloud-service for this 😉☁️
 
 If you need to invoke your Cloud Run applications periodically, use [Google Cloud Scheduler](https://cloud.google.com/scheduler/). This service can make a requests to your applications specific URL at an interval you specify. See at it as a modern Cloud-based crontab. 😎
 
@@ -199,7 +199,9 @@ Cloud Run for Anthos **on GKE** allows you to mount Kubernetes [Secrets] and [Co
 
 # Is there a “Free Tier”?
 
-Yes! See [Pricing documentation][pricing].
+Yes! You can run small project for free. See [Pricing documentation][pricing] for more info.
+Normally I create both -prod and -dev env. and I can almost every time run the entire dev-enviroment for free.
+Small projets like personal websites etc. can also be run for free or with a very low cost (unless you have a lot of traffic).
 
 # When am I charged?
 
@@ -209,8 +211,6 @@ This means an application that is not getting traffic is **free of charge**.
 
 # How is billed time calculated?
 
-Based on "time serving requests" on each instance. If your service handles
-multiple requests simultaneously, you do not pay for them separately. (This is a
-**cost saver!**)
+Based on "time serving requests" on each instance. If your service handles multiple requests simultaneously, you do not pay for them separately. (This is a real **cost saver!**)
 
 Each billable timeslice is **rounded up** to the nearest **100 milliseconds**.
