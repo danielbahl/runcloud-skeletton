@@ -1,6 +1,22 @@
 # Google Cloud Platform (GCP) - Cloud Run
 Skeleton and Deployment-scripts for Cloud Run Instances in Google Cloud Platform (GCP)
 
+```
+  _______             __  ___          
+ / ___/ /__  __ _____/ / / _ \__ _____ 
+/ /__/ / _ \/ // / _  / / , _/ // / _ \
+\___/_/\___/\_,_/\_,_/ /_/|_|\_,_/_//_/
+                                       
+```
+
+## Run the installer from your macOS terminal:
+
+```
+curl -o installer.php https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/installer.php && php installer.php
+```
+
+![Screenshot: Cloud Run Skeleton Installer Script](https://servicepoint.blob.core.windows.net/servicepoint-files/iTerm-2020-01-12-at-08.30.25-C21GBjqSUPZiO9MvmwWpxlQtQxsD61z2.png)
+
 ## config.ini
 
 Config-file used for defining variables like project-ID, service-ID, billing-ID and container specifications.
