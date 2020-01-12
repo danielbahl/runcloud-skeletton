@@ -74,7 +74,7 @@ You can map your domain here.
 
 
 
-## What can I run in Cloud Run?
+# What can I run in Cloud Run?
 
 If a web-application can be packaged into a container-image (Docker) and can run on Linux (x86-64), it can be executed on Googles Cloud Run platform.
 
@@ -88,20 +88,20 @@ Other kinds of applications may not be fit for Cloud Run. If your application is
 
 This script is based on PHP 7.4, using the Docker Hub image "php:7.4-apache". This can easily be changed in the Dockerfile after running the installer script below.
 
-## How is it different than Googles App Engine Flexible?
+# How is it different than Googles App Engine Flexible?
 
 GAE Flexible and Cloud Run from Google are very similar in concept, but they differ when is comes to the underlying tech. They both accept container images as deployment input, they both automatically scale and manage the infrastructure that your code runs for you. However:
 
-### Pricing/Autoscaling: 
+## Pricing/Autoscaling: 
 The pricing model between GAE Flexible Environment and Cloud Run are a bit different.
 
 In GAE Flexible, you are always running at least 1 instance at any time. So even if your app is not getting any requests, you’re paying for that instance. Billing granularity is 1 minute.
    In Cloud Run, you are only paying when you are processing requests, and the billing granularity is 0.1 second. See here for an explanation of the Cloud Run billing model.
 
-### Underlying infrastructure
+## Underlying infrastructure
 Since GAE Flexible is running on VMs, it is a bit slower than Cloud Run to deploy a new revision of your app, and scale up. Cloud Run deployments are faster.
 
-### Portability
+## Portability
 Cloud Run uses the open source Knative API and its container contract. This gives you flexibility and freedom to a greater extent. If you wanted to run the same workload on an infra you manage (for example a Kubernetes/k8s cluster like GKE), you could do it with "Cloud Run on GKE".
 
 * GAE Flexible is built on VMs, therefore is much slower to deploy and scale up.
