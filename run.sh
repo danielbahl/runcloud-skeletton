@@ -22,3 +22,4 @@ END
 
 # Build Docker.yaml 
 docker-compose -f Docker.yaml up
+docker-compose -f Docker.yaml down
