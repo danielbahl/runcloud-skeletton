@@ -20,6 +20,11 @@ services:
       - ./project/:/var/www/html/
 END
 
-# Build Docker.yaml 
+# Show http://localhost in Safari webbrowser
+screen -dm bash -c 'sleep 2; open -a /Applications/Safari.app http://localhost;'
+
+# Build Docker.yaml
 docker-compose -f Docker.yaml up
+
+# Unmount and kill docker container
 docker-compose -f Docker.yaml down
