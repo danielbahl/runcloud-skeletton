@@ -1,4 +1,4 @@
-## Docker image Apache with PHP 7.3
+## Docker image Apache with PHP 7.4
 FROM php:7.4-apache
 
 MAINTAINER YourName
