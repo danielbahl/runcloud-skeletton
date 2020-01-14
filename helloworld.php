@@ -51,9 +51,9 @@
         a {
             color: #ffcb36;
         }
-		small {
-			font-size: 11px;
-		}
+	small {
+		font-size: 11px;
+	}
     </style>
 </head>
 <body>
@@ -72,6 +72,7 @@
 			echo "Container Hostname: " . $_SERVER['SERVER_NAME'] . " &bull; " .
 			"Container IP: " . $_SERVER['SERVER_ADDR'] . " &bull; " .
 			"Load Balancer IP: " . $_SERVER['REMOTE_ADDR'] . "<br>" .
+			
 			"Web-server: " . $_SERVER['SERVER_SOFTWARE'] . " &bull; " .
 			"PHP version: " .phpversion();
 			?>
