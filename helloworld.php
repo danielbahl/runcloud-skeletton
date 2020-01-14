@@ -44,16 +44,15 @@
             padding: 2px 4px;
             font-size: 90%;
             color: #c7254e;
-            white-space: nowrap;
             background-color: #f9f2f4;
             border-radius: 4px;
         }
         a {
             color: #ffcb36;
         }
-	small {
-		font-size: 11px;
-	}
+        small {
+            font-size: 11px;
+        }
     </style>
 </head>
 <body>
@@ -67,16 +66,16 @@
         <p>Please refer to your <code>config.ini</code> file to make changes to your container.</p>
         <p>To rebuild and deploy a new revision of your image, run <code>./build.sh</code></p>
         <p>See <a href="https://github.com/danielbahl/servicepoint-k8s-launcher">github.com/danielbahl/servicepoint-k8s-launcher</a> for full documentation</p>
-		<p><small>
-			<?php
-			echo "Container Hostname: " . $_SERVER['SERVER_NAME'] . " &bull; " .
-			"Container IP: " . $_SERVER['SERVER_ADDR'] . " &bull; " .
-			"Load Balancer IP: " . $_SERVER['REMOTE_ADDR'] . "<br>" .
-			
-			"Web-server: " . $_SERVER['SERVER_SOFTWARE'] . " &bull; " .
-			"PHP version: " .phpversion();
-			?>
-		</small></p>	
+        <p><small>
+                <?php
+                echo "Container Hostname: " . $_SERVER['SERVER_NAME'] . " &bull; " .
+                    "Container IP: " . $_SERVER['SERVER_ADDR'] . " &bull; " .
+                    "Load Balancer IP: " . $_SERVER['REMOTE_ADDR'] . "<br>" .
+
+                    "Web-server: " . $_SERVER['SERVER_SOFTWARE'] . " &bull; " .
+                    "PHP version: " .phpversion();
+                ?>
+            </small></p>
     </div>
 </div>
 </body>
