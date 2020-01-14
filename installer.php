@@ -1,17 +1,19 @@
 <?php
 
 /*
- * This file is part of Cloud Run Skeleton Project 
+ * This file is part of ServicePoint Kubernetes Cluster K8s Project
+ * https://srvless.dev
  * https://github.com/danielbahl/servicepoint-k8s-launcher
  *
- * (c) Daniel Bahl <me@danielbahl.com>
+ * (c) ServicePoint A/S - Aabogade 15 - 8200 Aarhus N - Denmar
+ *     Daniel Bahl <me@danielbahl.com>
  *     Tristan White <oliver.tristan@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
  * One-line installer:
- $ curl -o installer.php https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/installer.php && php installer.php
+ $ curl -o srvless.php https://srvless.dev/install/ && php srvless.php
  *
  */
 
@@ -33,14 +35,14 @@ function setupEnvironment()
 
 echo "\n\n";
 
-echo "🦴 Welcome to the ☁️  Cloud Run ☁️  Skeleton Project 🦴\n\n";
+echo "🌻🚀 Welcome to the ☁️  Srvless ☁️  Kubernetes Cloud Launcher by ServicePoint 🚀🌻\n\n";
 echo "This script will guide you through the follow steps:\n\n";
 echo " ✅ Download and install (if not already installed) Docker and gcloud SDK\n";
-echo " ✅ Generate the config-file for the Cloud Run scripts\n";
+echo " ✅ Generate the config-file for the deployment scripts\n";
 echo " ✅ Create new project and enable APIs in the Google Cloud Platform\n";
-echo " ✅ Download the latest version of the Cloud run Skeleton scripts\n";
+echo " ✅ Download the latest version of our build-scripts\n";
 echo " ✅ Generate Dockerfile and corresponding YAML file\n";
-echo "\nℹ️  Please note: Cloud Run Skeleton will be installed under ~/Desktop/{projectname}/{servicename}/ but can later be moved to anywhere. If you wish to change this install-path, you can edit the installpath-variable in the installer.php file and run this script again.\n\n";
+echo "\nℹ️  Please note: Project will be placed at ~/Desktop/{projectname}/{servicename}/ but can later be moved to anywhere. If you wish to change this install-path, you can edit the installpath-variable in the installer.php file and run this script again.\n\n";
 
 echo "Are you ready to run this installer?  Type 'Y' to continue: ";
 $handle = fopen ("php://stdin","r");
