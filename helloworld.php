@@ -51,6 +51,9 @@
         a {
             color: #ffcb36;
         }
+		small {
+			font-size: 11px;
+		}
     </style>
 </head>
 <body>
@@ -59,11 +62,20 @@
 </div>
 <div class="content-wrapper">
     <div class="content">
-        <h1>It's running!</h1>
+        <h1>It's alive!</h1>
         <h2>Congratulations, you successfully deployed a container image to your ServicePoint Kubernetes Cluster.</h2>
         <p>Please refer to your <code>config.ini</code> file to make changes to your container.</p>
-        <p>To rebuild and deploy your image, run <code>./build.sh</code></p>
-        <p>See <a href="https://github.com/danielbahl/skeleton-cloudrun-gcp">https://github.com/danielbahl/skeleton-cloudrun-gcp</a> for full documentation</p>
+        <p>To rebuild and deploy a new revision of your image, run <code>./build.sh</code></p>
+        <p>See <a href="https://github.com/danielbahl/skeleton-cloudrun-gcp">github.com/danielbahl/skeleton-cloudrun-gcp</a> for full documentation</p>
+		<p><small>
+			<?php
+			echo "Container Hostname: " . $_SERVER['SERVER_NAME'] . " &bull; " .
+			"Container IP: " . $_SERVER['SERVER_ADDR'] . " &bull; " .
+			"Load Balancer IP: " . $_SERVER['REMOTE_ADDR'] . "<br>" .
+			"Web-server: " . $_SERVER['SERVER_SOFTWARE'] . " &bull; " .
+			"PHP version: " .phpversion();
+			?>
+		</small></p>	
     </div>
 </div>
 </body>
