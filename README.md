@@ -12,7 +12,7 @@ With this set of tools you can go from zero to fully-managed auto-scaleable cont
 curl -o srvless.php https://srvless.dev/install/ && php srvless.php
 ```
 
-![Screenshot: Skeleton Installer Script](https://servicepoint.blob.core.windows.net/servicepoint-files/iTerm-2020-01-12-at-08.30.25-C21GBjqSUPZiO9MvmwWpxlQtQxsD61z2.png)
+![Screenshot: Skeleton Installer Script](https://servicepoint.blob.core.windows.net/servicepoint-files/iTerm-2020-01-14-at-10.59.46-2rUyZCsvJkeSKnxU4LRdcoFjFWVlZBX7.png)
 
 ## config.ini
 
