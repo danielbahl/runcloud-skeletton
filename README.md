@@ -3,7 +3,7 @@ Skeleton and Deployment-scripts for ServicePoint Kubernetes Instances in Google 
 
 With this set of tools you can go from zero to fully-managed auto-scaleable containerised web-application running on ServicePoint K8S on GCP. Everything is running securely with TLS certificates and will auto-scale out-of-the-box. ServicePoint K8S supports scale-to-zero, meaning you can run your applications without cost, when there's no load.
 
-![Welcome to the K8S by ServicePoint Skeleton Project by Daniel Bahl](https://servicepoint.blob.core.windows.net/servicepoint-files/CleanShot-2020-01-12-at-09.06.56-6PLS9MfvNvoZ81x5Jg7EeoWyCIU2BwpD.png)
+![Welcome to the K8S by ServicePoint Skeleton Project by Daniel Bahl](https://servicepoint.blob.core.windows.net/servicepoint-files/CleanShot-2020-01-14-at-08.57.25-KIBI0fsLQzlWxCneYRfFtgWW8zDAMH78.png)
 
 
 ## Run the installer from your macOS terminal:
