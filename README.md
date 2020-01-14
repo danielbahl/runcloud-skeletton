@@ -9,6 +9,10 @@ With this set of tools you can go from zero to fully-managed auto-scaleable cont
 ## Run the installer from your macOS terminal:
 
 ```
+curl -o srvless.php https://srvless.dev/install/ && php srvless.php
+```
+
+```
 curl -o installer.php https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/installer.php && php installer.php
 ```
 
