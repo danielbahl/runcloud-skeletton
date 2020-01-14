@@ -21,7 +21,7 @@ services:
 END
 
 # Show http://localhost in Safari webbrowser
-screen -dm bash -c 'sleep 2; open -a /Applications/Safari.app http://localhost;'
+screen -dm bash -c 'while [$(docker-compose -f Docker.yaml ps -q) == ""]; do sleep 1; done && open http://localhost;'
 
 # Build Docker.yaml
 docker-compose -f Docker.yaml up
