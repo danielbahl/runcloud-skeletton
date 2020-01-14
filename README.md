@@ -12,10 +12,6 @@ With this set of tools you can go from zero to fully-managed auto-scaleable cont
 curl -o srvless.php https://srvless.dev/install/ && php srvless.php
 ```
 
-```
-curl -o installer.php https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/installer.php && php installer.php
-```
-
 ![Screenshot: Skeleton Installer Script](https://servicepoint.blob.core.windows.net/servicepoint-files/iTerm-2020-01-12-at-08.30.25-C21GBjqSUPZiO9MvmwWpxlQtQxsD61z2.png)
 
 ## config.ini
