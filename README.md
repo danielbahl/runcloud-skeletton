@@ -1,17 +1,10 @@
-# Google Cloud Platform (GCP) - Cloud Run
-Skeleton and Deployment-scripts for Cloud Run Instances in Google Cloud Platform (GCP). 
+# ServicePoint Kubernetes Platform
+Skeleton and Deployment-scripts for ServicePoint Kubernetes Instances in Google Cloud Platform (GCP) on Google Kubernetes Engine (GKE). 
 
-With this set of tools you can go from zero to fully-managed auto-scaleable containerised web-application running on Cloud Run from GCP. Everything is running securely with TLS certificates and will auto-scale out-of-the-box. Cloud Run also supports scale-to-zero meaning you can run your applications without cost, when there's no load.
+With this set of tools you can go from zero to fully-managed auto-scaleable containerised web-application running on ServicePoint K8S on GCP. Everything is running securely with TLS certificates and will auto-scale out-of-the-box. ServicePoint K8S supports scale-to-zero, meaning you can run your applications without cost, when there's no load.
 
-![Welcome to the Cloud Run Skeleton Project by Daniel Bahl](https://servicepoint.blob.core.windows.net/servicepoint-files/CleanShot-2020-01-12-at-09.06.56-6PLS9MfvNvoZ81x5Jg7EeoWyCIU2BwpD.png)
+![Welcome to the K8S by ServicePoint Skeleton Project by Daniel Bahl](https://servicepoint.blob.core.windows.net/servicepoint-files/CleanShot-2020-01-12-at-09.06.56-6PLS9MfvNvoZ81x5Jg7EeoWyCIU2BwpD.png)
 
-```
-  _______             __  ___          
- / ___/ /__  __ _____/ / / _ \__ _____ 
-/ /__/ / _ \/ // / _  / / , _/ // / _ \
-\___/_/\___/\_,_/\_,_/ /_/|_|\_,_/_//_/
-                                       
-```
 
 ## Run the installer from your macOS terminal:
 
@@ -19,7 +12,7 @@ With this set of tools you can go from zero to fully-managed auto-scaleable cont
 curl -o installer.php https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/installer.php && php installer.php
 ```
 
-![Screenshot: Cloud Run Skeleton Installer Script](https://servicepoint.blob.core.windows.net/servicepoint-files/iTerm-2020-01-12-at-08.30.25-C21GBjqSUPZiO9MvmwWpxlQtQxsD61z2.png)
+![Screenshot: Skeleton Installer Script](https://servicepoint.blob.core.windows.net/servicepoint-files/iTerm-2020-01-12-at-08.30.25-C21GBjqSUPZiO9MvmwWpxlQtQxsD61z2.png)
 
 ## config.ini
 
