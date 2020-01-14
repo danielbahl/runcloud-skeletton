@@ -2,7 +2,7 @@
 
 /*
  * This file is part of Cloud Run Skeleton Project 
- * https://github.com/danielbahl/skeleton-cloudrun-gcp
+ * https://github.com/danielbahl/servicepoint-k8s-launcher
  *
  * (c) Daniel Bahl <me@danielbahl.com>
  *     Tristan White <oliver.tristan@gmail.com>
@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  *
  * One-line installer:
- $ curl -o installer.php https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/installer.php && php installer.php
+ $ curl -o installer.php https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/installer.php && php installer.php
  *
  */
 
@@ -156,12 +156,12 @@ echo "✅  Directories created... \n\n";
 echo "⤵️  Downloading scripts... \n\n";
 
 $filesToDownload = array(
-'build.sh' => 'https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/build.sh', // build.sh
-'run.sh' => 'https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/run.sh', // run.sh
-'Dockerfile' => 'https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/Dockerfile', // Dockerfile
-'dev.sh' => 'https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/dev.sh', // dev.sh
-'init.sh' => 'https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/init.sh', // init.sh
-'project/index.php' => 'https://raw.githubusercontent.com/danielbahl/skeleton-cloudrun-gcp/master/helloworld.php', // project/index.php
+'build.sh' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/build.sh', // build.sh
+'run.sh' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/run.sh', // run.sh
+'Dockerfile' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/Dockerfile', // Dockerfile
+'dev.sh' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/dev.sh', // dev.sh
+'init.sh' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/init.sh', // init.sh
+'project/index.php' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/helloworld.php', // project/index.php
 );
 foreach($filesToDownload as $fileToDownloadName => $fileToDownloadUri ) {
 
