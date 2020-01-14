@@ -1,4 +1,4 @@
-# ServicePoint Kubernetes Platform
+# ServicePoint Srvless Kubernetes Platform
 Skeleton and Deployment-scripts for ServicePoint Kubernetes Instances in Google Cloud Platform (GCP) on Google Kubernetes Engine (GKE). 
 
 With this set of tools you can go from zero to fully-managed auto-scaleable containerised web-application running on ServicePoint K8S on GCP. Everything is running securely with TLS certificates and will auto-scale out-of-the-box. ServicePoint K8S supports scale-to-zero, meaning you can run your applications without cost, when there's no load.
