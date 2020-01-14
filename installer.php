@@ -3,7 +3,7 @@
 /*
  * This file is part of ServicePoint Kubernetes Cluster K8s Project
  * https://srvless.dev
- * https://github.com/danielbahl/servicepoint-k8s-launcher
+ * https://github.com/danielbahl/srvless-launcher
  *
  * (c) ServicePoint A/S - Aabogade 15 - 8200 Aarhus N - Denmar
  *     Daniel Bahl <me@danielbahl.com>
@@ -158,12 +158,12 @@ echo "✅  Directories created... \n\n";
 echo "⤵️  Downloading scripts... \n\n";
 
 $filesToDownload = array(
-'build.sh' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/build.sh', // build.sh
-'run.sh' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/run.sh', // run.sh
-'Dockerfile' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/Dockerfile', // Dockerfile
-'dev.sh' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/dev.sh', // dev.sh
-'init.sh' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/init.sh', // init.sh
-'project/index.php' => 'https://raw.githubusercontent.com/danielbahl/servicepoint-k8s-launcher/master/helloworld.php', // project/index.php
+'build.sh' => 'https://raw.githubusercontent.com/danielbahl/srvless-launcher/master/build.sh', // build.sh
+'run.sh' => 'https://raw.githubusercontent.com/danielbahl/srvless-launcher/master/run.sh', // run.sh
+'Dockerfile' => 'https://raw.githubusercontent.com/danielbahl/srvless-launcher/master/Dockerfile', // Dockerfile
+'dev.sh' => 'https://raw.githubusercontent.com/danielbahl/srvless-launcher/master/dev.sh', // dev.sh
+'init.sh' => 'https://raw.githubusercontent.com/danielbahl/srvless-launcher/master/init.sh', // init.sh
+'project/index.php' => 'https://raw.githubusercontent.com/danielbahl/srvless-launcher/master/helloworld.php', // project/index.php
 );
 foreach($filesToDownload as $fileToDownloadName => $fileToDownloadUri ) {
 
